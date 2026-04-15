@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "skills": {
+    "duckduckgo-search": {
+      "version": "1.0.0",
+      "installedAt": 1776183002607
+    },
+    "openai-tts": {
+      "version": "1.0.0",
+      "installedAt": 1776187084482
+    },
+    "telegram-bot-manager": {
+      "version": "1.0.0",
+      "installedAt": 1776200704080
+    },
+    "openclaw-telegram-acp-troubleshooter": {
+      "version": "1.0.1",
+      "installedAt": 1776203162494
+    },
+    "liang-tavily-search": {
+      "version": "1.0.1",
+      "installedAt": 1776203525400
+    },
+    "proactive-agent-lite": {
+      "version": "1.0.0",
+      "installedAt": 1776206401775
+    },
+    "self-improvement": {
+      "version": "1.0.0",
+      "installedAt": 1776207543920
+    },
+    "cn-ecommerce-search": {
+      "version": "2.0.0",
+      "installedAt": 1776207664050
+    },
+    "self-improving-proactive-agent": {
+      "version": "1.0.0",
+      "installedAt": 1776207670662
+    },
+    "agent-browser-core": {
+      "version": "1.0.1",
+      "installedAt": 1776220595236
+    },
+    "find-skills-for-clawhub": {
+      "version": "1.0.0",
+      "installedAt": 1776220599537
+    },
+    "message-routing": {
+      "version": "1.0.0",
+      "installedAt": 1776220684622
+    },
+    "liang-tavily-extract": {
+      "version": "1.0.0",
+      "installedAt": 1776220689097
+    },
+    "reflect": {
+      "version": "1.0.0",
+      "installedAt": 1776220693570
+    },
+    "agent-browser-stagehand": {
+      "version": "1.0.0",
+      "installedAt": 1776220697959
+    },
+    "openclaw-find-skills": {
+      "version": "1.0.0",
+      "installedAt": 1776220702007
+    },
+    "telegram-agent-setup": {
+      "version": "1.0.1",
+      "installedAt": 1776220705866
+    },
+    "telegram": {
+      "version": "1.0.1",
+      "installedAt": 1776220709683
+    },
+    "chrome-web-automation": {
+      "version": "1.0.0",
+      "installedAt": 1776220714331
+    },
+    "openclaw-web-automation": {
+      "version": "1.0.7",
+      "installedAt": 1776220719047
+    },
+    "cn-ecommerce-search-v2": {
+      "version": "1.0.0",
+      "installedAt": 1776225990476
+    }
+  }
+}
