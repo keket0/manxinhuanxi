@@ -65,6 +65,10 @@ Things like:
 
 用户之后可以只报代号，我应直接按对应路径修改或同步，不再要求重复提供路径。
 
+### SSH
+
+- openwrt → `192.168.50.2:22`, user: `root`
+
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
