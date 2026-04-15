@@ -64,76 +64,168 @@
   - 从明确纠正和重复成功中学习，不从沉默里脑补
 - 备注：这是当前最像“长期运行规范”的技能之一
 
-## 四、Telegram 相关
+## 四、浏览器自动化
 
-### 8. telegram-bot-manager
+### 8. agent-browser-core
+- 状态：可用
+- 价值：浏览器自动化主力核心，适合稳定、结构化、多步骤网页操作
+- 优先场景：复杂网页流程、需要 snapshot / refs / JSON 的可控自动化
+- 依赖：外部 `agent-browser` CLI 与浏览器运行环境
+- 备注：当前浏览器线默认主力
+
+### 9. agent-browser-stagehand
+- 状态：可用
+- 价值：自然语言驱动的浏览器自动化，支持本地 Chrome 或远程 Browserbase
+- 优先场景：快速浏览、自然语言点击/提取、需要远程浏览器时
+- 依赖：首次可能需在技能目录执行 `npm install`、`npm link`；本地模式依赖 Chrome，远程模式依赖 Browserbase key
+- 备注：更灵活，但严肃可复现任务通常仍次于 `agent-browser-core`
+
+### 10. chrome-web-automation
+- 状态：可用
+- 价值：接管现有 Chrome 会话进行调试、填表、截图、复现问题
+- 优先场景：用户当前已打开的浏览器现场、真实登录态问题、当前 tab 排障
+- 依赖：可访问现有 Chrome 会话
+- 备注：不是通用主力，而是“接管现场”专用
+
+### 11. openclaw-web-automation
+- 状态：可用
+- 价值：轻量公共网页查询，适合公开网页摘要、关键词检查、简单统计
+- 优先场景：无登录、无复杂交互的公共页面检查
+- 依赖：本地 Python 环境
+- 备注：快刀型技能，简单网页任务优先级很高
+
+## 五、技能发现 / 抽取 / 路由
+
+### 12. find-skills-for-clawhub
+- 状态：可用
+- 价值：官方 ClawHub 技能发现导航，负责搜索、推荐、安装流程指导
+- 优先场景：找技能、问 OpenClaw 能不能做某事、需要搜索和安装技能时
+- 依赖：`clawhub` CLI（现已安装且已登录）
+- 备注：当前技能生态导航核心件
+
+### 13. openclaw-find-skills
+- 状态：可用
+- 价值：补充型找技能技能，适合继续扩展技能发现能力
+- 优先场景：继续搜技能、查替代 skill、补充生态导航
+- 依赖：按技能文档执行
+- 备注：和 `find-skills-for-clawhub` 可形成双保险
+
+### 14. liang-tavily-extract
+- 状态：可用
+- 价值：按 URL 提取网页正文，适合与 `tavily-search` 组成“先搜后吃”组合
+- 优先场景：已知 URL 的内容抽取、文档精读、页面正文抓取
+- 依赖：`node`、`TAVILY_API_KEY`
+- 备注：当前已具备可用条件，价值很高
+
+### 15. message-routing
+- 状态：可用，但应谨慎使用
+- 价值：管理 Telegram 消息路由与模型切换
+- 优先场景：明确要调整 Telegram 模型路由、fallback、排查处理链路时
+- 风险：会修改 `~/.openclaw/openclaw.json` 并可能重启 gateway
+- 备注：不是普通查询型技能，属于高影响配置技能
+
+### 16. reflect
+- 状态：可用
+- 价值：补充反思与复盘能力
+- 优先场景：任务复盘、方法回看、总结做法
+- 依赖：按技能文档执行
+- 备注：更像行为增强和复盘补件
+
+## 六、Telegram 相关
+
+### 17. telegram-bot-manager
 - 状态：可用
 - 价值：Telegram bot 配置与管理
 - 优先场景：bot 设置、网络检查、配置排查
 
-### 9. openclaw-telegram-acp-troubleshooter
+### 18. openclaw-telegram-acp-troubleshooter
 - 状态：可用
 - 价值：排查 OpenClaw Telegram / ACP 相关问题
 - 优先场景：Telegram 集成异常、命令菜单、连接链路排查
 
-## 五、半可用
+### 19. telegram-agent-setup
+- 状态：可用
+- 价值：Telegram agent 初始配置与接入指导
+- 优先场景：新建 Telegram agent、初始接入、基础配置教学
+- 备注：偏 setup / onboarding
 
-### 10. openai-tts
+### 20. telegram
+- 状态：可用
+- 价值：通用 Telegram 能力参考与模板补充
+- 优先场景：Telegram Bot API、命令模板、更新路由参考
+- 备注：偏参考资料型
+
+## 七、半可用
+
+### 21. openai-tts
 - 状态：半可用
 - 已打通：脚本权限、`jq`、`curl`、网络链路、代理
 - 当前阻塞：OpenAI key 无效，返回 `401 invalid_api_key`
 - 优先场景：文本转语音、音频输出
 - 备注：一旦换成有效官方 key，可直接转正
 
-## 六、当前仍未拿下的主线
+## 八、当前仍未拿下 / 可判定异常的条目
 
-### 第一优先
-1. `agent-browser-core`
-2. `find-skills-for-clawhub`
+### 官方当前不可安装
+1. `phy-openclaw-telegram-bot`
+2. `claw-ds-generator`
 
-### 第二优先
-3. `openclaw-find-skills`
-4. `agent-browser-stagehand`
+### 当前判断
+- 这两个在已登录官方 `clawhub` CLI 下仍返回 `Skill not found`
+- 更像不存在 / 已下架 / 下载源无此条目，而不是 429 限流
 
-### 次级
-5. `message-routing`
-6. `liang-tavily-extract`
-7. `reflect`
-
-## 七、原始“必须学习技能”映射
+## 九、原始“必须学习技能”映射
 
 - `weather` → 已可用
-- `Agent Browser` → 未装上，主追 `agent-browser-core`
-- `claw-ds-generator` → 高概率不存在 / 下架 / 名字不对
+- `Agent Browser` → 已可用，主力为 `agent-browser-core`，补充为 `agent-browser-stagehand`
+- `claw-ds-generator` → 仍不可安装，且更像不存在 / 下架 / 名字不对
 - `cn-ecommerce-search` → 已可用
 - `duckduckgo-search` → 已可用
-- `find-skills` → 未装上，主追 `find-skills-for-clawhub`
+- `find-skills` → 已可用，主力为 `find-skills-for-clawhub`，补充为 `openclaw-find-skills`
 - `openai-tts` → 已装，半可用
 - `proactive-agent` → 已有替代 `proactive-agent-lite`
 - `self-improvement` → 已可用
 - `tavily-search` → 已可用
 
-## 八、当前最实用的技能组合
+## 十、当前最实用的技能组合
 
 ### 资料检索组合
 - `tavily-search`
 - `duckduckgo-search`
 - `weather`
 
+### 搜索后精读组合
+- `tavily-search`
+- `liang-tavily-extract`
+
 ### 行为增强组合
 - `proactive-agent-lite`
 - `self-improvement`
 - `self-improving-proactive-agent`
+- `reflect`
 
 ### 中文电商组合
 - `cn-ecommerce-search`
 
+### 浏览器自动化组合
+- `agent-browser-core`
+- `agent-browser-stagehand`
+- `chrome-web-automation`
+- `openclaw-web-automation`
+
+### 技能发现组合
+- `find-skills-for-clawhub`
+- `openclaw-find-skills`
+
 ### Telegram 运维组合
 - `telegram-bot-manager`
 - `openclaw-telegram-acp-troubleshooter`
+- `telegram-agent-setup`
+- `telegram`
 
-## 九、一句话总结
+## 十一、一句话总结
 
-现在最缺的已经不是搜索、主动性、自我改进、电商，而是：
-- 浏览器自动化
-- 技能发现导航
+现在最缺的已经不是搜索、主动性、自我改进、电商、浏览器自动化或技能发现导航。
+当前技能体系已经基本成型，真正仍未解决的只剩：
+- `openai-tts` 的有效官方 key
+- `phy-openclaw-telegram-bot` / `claw-ds-generator` 这两个官方当前不可安装条目
