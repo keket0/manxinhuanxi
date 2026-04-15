@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:**
 - **Pronouns:** _(optional)_
 - **Timezone:**
-- **Notes:** prefers replies in Chinese (set on 2026-04-14); response style preferences added on 2026-04-15: conclusion first, concise, transparent failure reporting, confirm before high-risk ops, and follow established safety process for config/core-skill changes; prioritize approved search routes and state uncertainty when unsure.
+- **Notes:** prefers replies in Chinese (set on 2026-04-14); response style preferences added on 2026-04-15: conclusion first, concise, transparent failure reporting, confirm before high-risk ops, and follow established safety process for config/core-skill changes; prioritize approved search routes and state uncertainty when unsure; on 2026-04-15 explicitly required long-term memory, memory retrieval, and regular daily summaries/journaling of completed work; free skills may be installed from the official skill site or high-star GitHub sources when genuinely useful.
 
 ## Context
 
