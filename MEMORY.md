@@ -40,6 +40,9 @@
 - 大文件目录使用 `/www/manmanai/openclaw`，适合 downloads、artifacts、browser-data、tts-output、logs 等大体积产物。
 - 当前策略是：主目录 `/root/.openclaw` 与 `/root/.openclaw/workspace` 保持原位，大文件优先落到 `/www/manmanai/openclaw`。
 - 已准备大盘备份目录 `/www/manmanai/openclaw/backup`，用于后续快照与恢复。
+- 主人的 Docker 项目统一放在 `/www/manmanai/docker/<项目名>/` 下，每个项目目录内固定放 `docker-compose.yml`，方便整洁管理与手动维护。
+- 以后如需新建 Docker 项目，应按“创建项目目录 -> 在目录内写好 `docker-compose.yml` -> 进入该目录执行 `docker-compose up -d`”的流程进行。
+- 以后如主人要求升级某个 Docker 项目，应进入对应项目目录，按固定升级命令执行：`docker-compose pull && docker-compose up -d --remove-orphans`。
 
 ## 常用官方入口与资料源
 - OpenClaw 官方网站：`https://openclaw.ai`

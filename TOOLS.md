@@ -69,6 +69,14 @@ Things like:
 
 - openwrt → `192.168.50.2:22`, user: `root`
 
+### Docker 项目约定
+
+- Docker 项目根目录：`/www/manmanai/docker`
+- 每个项目使用独立目录：`/www/manmanai/docker/<项目名>/`
+- 每个项目的 compose 文件固定放在项目目录下：`docker-compose.yml`
+- 新建项目默认流程：创建项目目录 → 写/改 `docker-compose.yml` → 在该目录执行 `docker-compose up -d`
+- 升级项目默认流程：进入项目目录 → 执行 `docker-compose pull && docker-compose up -d --remove-orphans`
+
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
