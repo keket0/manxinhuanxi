@@ -84,6 +84,30 @@
     "cn-ecommerce-search-v2": {
       "version": "1.0.0",
       "installedAt": 1776225990476
+    },
+    "agent-browser-clawdbot": {
+      "version": "0.1.0",
+      "installedAt": 1776231844545
+    },
+    "telegram-bot-builder": {
+      "version": "1.0.0",
+      "installedAt": 1776231853014
+    },
+    "telegram-history": {
+      "version": "1.1.0",
+      "installedAt": 1776231858456
+    },
+    "openclaw-telegram-setup": {
+      "version": "1.0.0",
+      "installedAt": 1776231863618
+    },
+    "weather": {
+      "version": "1.0.0",
+      "installedAt": 1776231868162
+    },
+    "weather-1-0-0": {
+      "version": "1.0.0",
+      "installedAt": 1776231873766
     }
   }
 }
