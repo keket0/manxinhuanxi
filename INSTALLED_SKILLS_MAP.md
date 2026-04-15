@@ -209,7 +209,8 @@
 - `reflect`
 
 ### 中文电商组合
-- `cn-ecommerce-search`
+- `cn-ecommerce-search-v2`（当前优先）
+- `cn-ecommerce-search`（旧条目，依赖包失效）
 
 ### 浏览器自动化组合
 - `agent-browser-core`（主力，已实测可战斗）
@@ -250,10 +251,11 @@
 ### C. 已装但需额外环境 / 外部运行时
 - `openai-tts`（缺有效官方 OpenAI key）
 - `openclaw-web-automation`（缺外部 Automation Kit Python runtime / repo）
-- `cn-ecommerce-search`（依赖 `npx @shopmeagent/cn-ecommerce-search-mcp`，补代理后返回 npm `404 Not Found`，更像上游包名失效/下架/私有不可见，而不只是网络问题）
+- `cn-ecommerce-search`（旧版依赖 `npx @shopmeagent/cn-ecommerce-search-mcp`，补代理后返回 npm `404 Not Found`，更像上游包名失效/下架/私有不可见，而不只是网络问题）
 
 ### C+ 已实测可用，但仍建议保留运行时前提意识
 - `liang-tavily-extract`（已实测可抽取 `https://example.com`，依赖 `node` + `TAVILY_API_KEY`）
+- `cn-ecommerce-search-v2`（已安装；skill 本体为浏览器/网页搜索工作流说明，不再依赖旧版失效 npm 包；当前至少已验证 JD、闲鱼搜索页可通过代理抓取到页面 HTML）
 
 ### D. 已装但当前包/形态不适合直接执行
 - `agent-browser-stagehand`（skill 包不完整，缺 `package.json` / 源码）
