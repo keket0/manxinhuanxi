@@ -56,6 +56,15 @@ Things like:
 - self-improvement
 - tavily-search
 
+## 影视接口代号路径
+
+- pg分享 → `/www/manmanai/PG/jsm🧿.json`
+- pg自用 → `/www/manmanai/pg_zy/jsm🧿.json`
+- 不夜自用 → `/www/manmanai/pg_zy/buyezy🧿.json`
+- 不夜分享 → `/www/manmanai/pg_zy/buyegg🧿.json`
+
+用户之后可以只报代号，我应直接按对应路径修改或同步，不再要求重复提供路径。
+
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
