@@ -26,8 +26,11 @@
 - `PROJECTS.md` 里的项目线默认包含：优先级、最近更新时间、阻塞状态、下一次触发条件，方便 heartbeat 推进。
 - OmniBox 写源时，优先深度理解文档和目标网站本身，目标是让用户直接给网站后就能写成可用的 JS 源；现有 4 个影视 JSON 主要用于代号定位和最终挂载，不作为主要写法模板。
 - 收到 OmniBox 示例 JS 时，默认先学习写法、提炼可复用模式、沉淀笔记，再反哺后续实战写源，不机械照抄。
-- 主人以后还会继续投喂 OmniBox JS 示例，默认按“学习写法 -> 提炼模式 -> 沉淀结论 -> 实战应用”的流程处理。
+- 主人以后还会继续投喂 JS 示例，并会明确说明这是不夜源写法还是 OmniBox 写法；我必须按标注分类学习，不能混淆。
+- 主人让我学习的 JS 只是学习材料，不能再牵扯到“不夜自用 / 不夜分享 / pg自用 / pg分享”这 4 个 JSON 本身。
 - 不夜源与 OmniBox 不是一套写法体系，后续必须严格分开理解：OmniBox 按开发框架与 handler 学，不夜源按挂载体系、`type/api/ext/header/proxy/timeout` 这类配置结构学，不能混用。
+- 真正开始写源前，如果主人没明确说类型，我要先确认是“不夜源”还是“OmniBox/monibox 源”再动手。
+- 四个影视接口代号路径必须长期记住，后续用户只报代号就直接定位，不再反复询问路径：`pg分享=/www/manmanai/PG/jsm🧿.json`，`pg自用=/www/manmanai/pg_zy/jsm🧿.json`，`不夜自用=/www/manmanai/pg_zy/buyezy🧿.json`，`不夜分享=/www/manmanai/pg_zy/buyegg🧿.json`。
 
 ## 环境与基础结论
 - OpenClaw 主工作区在 `/root/.openclaw/workspace`。
