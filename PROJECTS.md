@@ -123,6 +123,7 @@
 - 大盘目录已准备好：`/www/manmanai/openclaw`
 - 备份目录已准备好：`/www/manmanai/openclaw/backup`
 - 已有备份脚本与快照基础。
+- 已补充恢复说明：`/root/.openclaw/workspace/RESTORE.md`
 - 最新已执行备份快照：`/www/manmanai/openclaw/backup/snapshots/2026-04-15-143902`
 
 ### 已确认事实
