@@ -66,6 +66,7 @@
 - 备份根目录：`/www/manmanai/openclaw/backup`
 - 系统状态文档：`/root/.openclaw/workspace/SYSTEM-STATE.md`
 - 恢复文档：`/root/.openclaw/workspace/RESTORE.md`
+- CLI 清单：`/root/.openclaw/workspace/CLI-INVENTORY.md`
 
 ---
 
@@ -260,6 +261,7 @@
 - `/root/.openclaw/workspace/RESTORE.md`
 - `/root/.openclaw/workspace/SYSTEM-STATE.md`
 - `/root/.openclaw/workspace/MIGRATION.md`
+- `/root/.openclaw/workspace/CLI-INVENTORY.md`
 
 这样新机器上不会只有“备份文件”，还会有：
 - 恢复说明
@@ -271,7 +273,6 @@
 ## 11. 后续还能怎么继续增强
 
 如果要把迁移能力继续提高，下一步建议补：
-- 全局 CLI 安装清单
 - 更完整的 systemd / crontab 自定义项清单
 - 一份半自动迁移脚本
 - 一份新机器安装前置检查脚本
