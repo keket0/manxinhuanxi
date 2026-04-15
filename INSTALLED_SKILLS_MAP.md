@@ -67,12 +67,13 @@
 ## 四、浏览器自动化
 
 ### 8. agent-browser-core
-- 状态：高价值参考主线，当前需额外安装外部 CLI 才能直接执行
+- 状态：可用，且已实测达到“基本可战斗”
 - 价值：浏览器自动化核心规范，适合稳定、结构化、多步骤网页操作
 - 优先场景：复杂网页流程、需要 snapshot / refs / JSON 的可控自动化
-- 依赖：外部 `agent-browser` CLI 与浏览器运行环境
-- 当前问题：技能包本身是高质量参考文档，不自带 `agent-browser` 主程序；当前机器初查时未安装该 CLI
-- 备注：是浏览器线最值得依赖的规范主线，但不是“装上 skill 就立刻能跑”的类型
+- 依赖：外部 `agent-browser` CLI 与浏览器运行环境（现已安装）
+- 实测通过：`open https://example.com --json`、`snapshot`、`get title`、`screenshot`
+- 产物落点：`/www/manmanai/openclaw/artifacts/agent-browser/example-com.png`
+- 备注：当前浏览器线真正可战斗的主力
 
 ### 9. agent-browser-stagehand
 - 状态：已安装，但当前 skill 包不完整
@@ -211,10 +212,10 @@
 - `cn-ecommerce-search`
 
 ### 浏览器自动化组合
-- `agent-browser-core`（核心规范主线，需额外装外部 CLI）
+- `agent-browser-core`（主力，已实测可战斗）
 - `agent-browser-stagehand`（当前仅参考，包不完整）
 - `chrome-web-automation`（当前偏参考型，适合指导接管现有 Chrome 会话）
-- `openclaw-web-automation`（需补 Python automation runtime）
+- `openclaw-web-automation`（需补外部 Automation Kit Python runtime）
 
 ### 技能发现组合
 - `find-skills-for-clawhub`
@@ -231,7 +232,6 @@
 现在最缺的已经不是搜索、主动性、自我改进、电商、浏览器自动化或技能发现导航。
 当前技能体系已经基本成型，真正仍未解决的主要是：
 - `openai-tts` 的有效官方 key
-- `openclaw-web-automation` 缺 Python automation runtime
+- `openclaw-web-automation` 缺外部 Automation Kit Python runtime / repo 根目录
 - `agent-browser-stagehand` 包不完整，当前不能初始化
-- `agent-browser-core` 需额外安装外部 `agent-browser` CLI 才能变成真实可执行链路
 - `phy-openclaw-telegram-bot` / `claw-ds-generator` 这两个官方当前不可安装条目
