@@ -124,13 +124,15 @@
 - 备份目录已准备好：`/www/manmanai/openclaw/backup`
 - 已有备份脚本与快照基础。
 - 已补充恢复说明：`/root/.openclaw/workspace/RESTORE.md`
-- 最新已执行备份快照：`/www/manmanai/openclaw/backup/snapshots/2026-04-15-143902`
+- 已把 `/root/.config/systemd/user/openclaw-gateway.service` 纳入备份。
+- 最新已执行备份快照：`/www/manmanai/openclaw/backup/snapshots/2026-04-15-152820`
 
 ### 已确认事实
 - 大文件走 `/www/manmanai/openclaw`。
 - 主目录仍在 `/root/.openclaw` 与 `/root/.openclaw/workspace`。
 - 若未来重装系统，只保住 `/www` 盘还不够，核心配置仍需备份。
-- 本次快照总体积约 `46M`，其中 agents 约 `42M`，workspace 约 `3.8M`，memory 约 `72K`，config 约 `12K`。
+- 当前备份已覆盖 `openclaw.json`、workspace、memory、agents、`openclaw-gateway.service`。
+- 本次快照总体积约 `53M`，其中 agents 约 `49M`，workspace 约 `3.9M`，memory 约 `72K`，config 约 `12K`，systemd 服务文件约 `4.0K`。
 
 ### 下一步
 - 持续保持快照可恢复。

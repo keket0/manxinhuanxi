@@ -3,6 +3,7 @@ set -euo pipefail
 
 BACKUP_ROOT=${BACKUP_ROOT:-/www/manmanai/openclaw/backup}
 SOURCE_ROOT=${SOURCE_ROOT:-/root/.openclaw}
+SYSTEMD_SERVICE_FILE=${SYSTEMD_SERVICE_FILE:-/root/.config/systemd/user/openclaw-gateway.service}
 TS=$(date +%F-%H%M%S)
 SNAPSHOT_DIR="$BACKUP_ROOT/snapshots/$TS"
 
@@ -11,6 +12,7 @@ mkdir -p \
   "$BACKUP_ROOT/workspace" \
   "$BACKUP_ROOT/memory" \
   "$BACKUP_ROOT/agents" \
+  "$BACKUP_ROOT/systemd" \
   "$BACKUP_ROOT/snapshots"
 
 copy_dir_current() {
@@ -38,12 +40,18 @@ cp -a "$SOURCE_ROOT/openclaw.json" "$BACKUP_ROOT/config/openclaw.json"
 copy_dir_current "$SOURCE_ROOT/workspace" "$BACKUP_ROOT/workspace"
 copy_dir_current "$SOURCE_ROOT/memory" "$BACKUP_ROOT/memory"
 copy_dir_current "$SOURCE_ROOT/agents" "$BACKUP_ROOT/agents"
+if [ -e "$SYSTEMD_SERVICE_FILE" ]; then
+  cp -a "$SYSTEMD_SERVICE_FILE" "$BACKUP_ROOT/systemd/openclaw-gateway.service"
+fi
 
 mkdir -p "$SNAPSHOT_DIR"
 cp -a "$SOURCE_ROOT/openclaw.json" "$SNAPSHOT_DIR/"
 copy_dir_snapshot "$SOURCE_ROOT/workspace" "$SNAPSHOT_DIR"
 copy_dir_snapshot "$SOURCE_ROOT/memory" "$SNAPSHOT_DIR"
 copy_dir_snapshot "$SOURCE_ROOT/agents" "$SNAPSHOT_DIR"
+if [ -e "$SYSTEMD_SERVICE_FILE" ]; then
+  cp -a "$SYSTEMD_SERVICE_FILE" "$SNAPSHOT_DIR/openclaw-gateway.service"
+fi
 
 echo "Backup completed"
 echo "BACKUP_ROOT=$BACKUP_ROOT"
@@ -53,4 +61,5 @@ du -sh \
   "$BACKUP_ROOT/workspace/current" \
   "$BACKUP_ROOT/memory/current" \
   "$BACKUP_ROOT/agents/current" \
+  "$BACKUP_ROOT/systemd/openclaw-gateway.service" \
   "$SNAPSHOT_DIR"
