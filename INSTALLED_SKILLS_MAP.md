@@ -74,18 +74,20 @@
 - 备注：当前浏览器线默认主力
 
 ### 9. agent-browser-stagehand
-- 状态：可用
+- 状态：已安装，但当前 skill 包不完整
 - 价值：自然语言驱动的浏览器自动化，支持本地 Chrome 或远程 Browserbase
 - 优先场景：快速浏览、自然语言点击/提取、需要远程浏览器时
-- 依赖：首次可能需在技能目录执行 `npm install`、`npm link`；本地模式依赖 Chrome，远程模式依赖 Browserbase key
-- 备注：更灵活，但严肃可复现任务通常仍次于 `agent-browser-core`
+- 依赖：文档要求执行 `npm install`、`npm link`；本地模式依赖 Chrome，远程模式依赖 Browserbase key
+- 当前问题：安装下来的技能目录只有文档和 `setup.json`，缺少 `package.json` 与源码，无法实际完成初始化
+- 备注：当前更像文档型 / 参考型技能，不能当作已可直接运行的浏览器工具
 
 ### 10. chrome-web-automation
-- 状态：可用
-- 价值：接管现有 Chrome 会话进行调试、填表、截图、复现问题
+- 状态：已安装，当前更像参考型技能
+- 价值：描述如何接管现有 Chrome 会话进行调试、填表、截图、复现问题
 - 优先场景：用户当前已打开的浏览器现场、真实登录态问题、当前 tab 排障
-- 依赖：可访问现有 Chrome 会话
-- 备注：不是通用主力，而是“接管现场”专用
+- 依赖：需要底层浏览器执行能力；技能包本身未附带独立可执行工程
+- 当前判断：目录中只有 `SKILL.md`、参考文件和 `agents/openai.yaml`，没有 `package.json` 或独立脚本，更像从内置能力抽出的说明包装
+- 备注：不是通用主力，而是“接管现场”方法说明；真正执行仍应依赖 OpenClaw / 浏览器工具链本身
 
 ### 11. openclaw-web-automation
 - 状态：可用
@@ -208,10 +210,10 @@
 - `cn-ecommerce-search`
 
 ### 浏览器自动化组合
-- `agent-browser-core`
-- `agent-browser-stagehand`
-- `chrome-web-automation`
-- `openclaw-web-automation`
+- `agent-browser-core`（默认主力）
+- `agent-browser-stagehand`（当前仅参考，包不完整）
+- `chrome-web-automation`（当前偏参考型，适合指导接管现有 Chrome 会话）
+- `openclaw-web-automation`（需补 Python automation runtime）
 
 ### 技能发现组合
 - `find-skills-for-clawhub`
@@ -226,6 +228,8 @@
 ## 十一、一句话总结
 
 现在最缺的已经不是搜索、主动性、自我改进、电商、浏览器自动化或技能发现导航。
-当前技能体系已经基本成型，真正仍未解决的只剩：
+当前技能体系已经基本成型，真正仍未解决的主要是：
 - `openai-tts` 的有效官方 key
+- `openclaw-web-automation` 缺 Python automation runtime
+- `agent-browser-stagehand` 包不完整，当前不能初始化
 - `phy-openclaw-telegram-bot` / `claw-ds-generator` 这两个官方当前不可安装条目
