@@ -227,11 +227,41 @@
 - `telegram-agent-setup`
 - `telegram`
 
-## 十一、一句话总结
+## 十一、当前分级清单
 
-现在最缺的已经不是搜索、主动性、自我改进、电商、浏览器自动化或技能发现导航。
-当前技能体系已经基本成型，真正仍未解决的主要是：
-- `openai-tts` 的有效官方 key
-- `openclaw-web-automation` 缺外部 Automation Kit Python runtime / repo 根目录
-- `agent-browser-stagehand` 包不完整，当前不能初始化
-- `phy-openclaw-telegram-bot` / `claw-ds-generator` 这两个官方当前不可安装条目
+### A. 已实测可战斗
+- `agent-browser-core`
+- `find-skills-for-clawhub`
+- `tavily-search`
+- `duckduckgo-search`
+- `telegram-bot-manager`
+
+### B. 已装且高价值，但当前偏参考 / 指南型
+- `telegram`
+- `telegram-agent-setup`
+- `chrome-web-automation`
+- `self-improvement`
+- `self-improving-proactive-agent`
+- `proactive-agent-lite`
+- `reflect`
+- `openclaw-telegram-acp-troubleshooter`
+
+### C. 已装但需额外环境 / 外部运行时
+- `openai-tts`（缺有效官方 OpenAI key）
+- `openclaw-web-automation`（缺外部 Automation Kit Python runtime / repo）
+- `cn-ecommerce-search`（依赖 `npx @shopmeagent/cn-ecommerce-search-mcp`，当前这台机器直连 npm registry 遇到 `ECONNRESET`）
+- `liang-tavily-extract`（文档和依赖已齐，建议后续补一次真实抽取实测）
+
+### D. 已装但当前包/形态不适合直接执行
+- `agent-browser-stagehand`（skill 包不完整，缺 `package.json` / 源码）
+- `telegram`（更偏 Telegram Bot API 设计参考而非直接执行工具）
+
+### E. 官方当前不可安装 / 明显异常
+- `phy-openclaw-telegram-bot`
+- `claw-ds-generator`
+
+## 十二、一句话总结
+
+当前技能体系已经基本成型。
+真正已被实测打通的主力包括浏览器自动化核心、技能发现、搜索与 Telegram bot 诊断；
+当前主要剩余问题集中在外部运行时缺失、无效 key、个别包发布不完整，以及少数官方当前不可安装条目。
