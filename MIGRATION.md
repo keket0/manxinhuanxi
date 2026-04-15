@@ -68,6 +68,7 @@
 - 恢复文档：`/root/.openclaw/workspace/RESTORE.md`
 - CLI 清单：`/root/.openclaw/workspace/CLI-INVENTORY.md`
 - 迁移前置检查脚本：`/root/.openclaw/workspace/scripts/check-migration-prereqs.sh`
+- 半自动迁移脚本：`/root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh`
 
 ---
 
@@ -152,6 +153,20 @@ bash /root/.openclaw/workspace/scripts/check-migration-prereqs.sh
 3. `memory`
 4. `agents`
 5. `openclaw-gateway.service`
+
+也可以直接用半自动迁移脚本：
+
+```bash
+bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-snapshot
+bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-snapshot --apply
+bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-snapshot --apply --restart-service
+```
+
+说明：
+- 默认是 dry-run，只预览，不写入。
+- `--apply` 才会真正覆盖恢复。
+- 执行前会把目标机当前文件先移动到临时目录做现场备份。
+- `--restart-service` 会执行 `systemctl --user daemon-reload`、`enable`、`restart` 与状态检查。
 
 ### 第三步，检查路径兼容性
 重点看：
@@ -270,6 +285,7 @@ bash /root/.openclaw/workspace/scripts/check-migration-prereqs.sh
 - `/root/.openclaw/workspace/MIGRATION.md`
 - `/root/.openclaw/workspace/CLI-INVENTORY.md`
 - `/root/.openclaw/workspace/scripts/check-migration-prereqs.sh`
+- `/root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh`
 
 这样新机器上不会只有“备份文件”，还会有：
 - 恢复说明
@@ -282,6 +298,6 @@ bash /root/.openclaw/workspace/scripts/check-migration-prereqs.sh
 
 如果要把迁移能力继续提高，下一步建议补：
 - 更完整的 systemd / crontab 自定义项清单
-- 一份半自动迁移脚本
+- 一份针对新机器环境的安装前置脚本
 
 做到这一步，跨机器恢复会更接近可重复执行，而不只是“手工迁移可行”。
