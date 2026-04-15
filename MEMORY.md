@@ -31,7 +31,7 @@
 - 不夜源与 OmniBox 不是一套写法体系，后续必须严格分开理解：OmniBox 按开发框架与 handler 学，不夜源按挂载体系、`type/api/ext/header/proxy/timeout` 这类配置结构学，不能混用。
 - 真正开始写源前，如果主人没明确说类型，我要先确认是“不夜源”还是“OmniBox/monibox 源”再动手。
 - 四个影视接口代号路径必须长期记住，后续用户只报代号就直接定位，不再反复询问路径：`pg分享=/www/manmanai/PG/jsm🧿.json`，`pg自用=/www/manmanai/pg_zy/jsm🧿.json`，`不夜自用=/www/manmanai/pg_zy/buyezy🧿.json`，`不夜分享=/www/manmanai/pg_zy/buyegg🧿.json`。
-
+- `/www/manmanai/buye/vod/routes` 是主人存放大量不夜 JS 源的主学习目录，后续学习不夜源应优先从这里按类型拆解：影视源、网盘源、聚合配置、功能目录、后台 API 控制器。
 ## 环境与基础结论
 - OpenClaw 主工作区在 `/root/.openclaw/workspace`。
 - 大文件目录使用 `/www/manmanai/openclaw`，适合 downloads、artifacts、browser-data、tts-output、logs 等大体积产物。
