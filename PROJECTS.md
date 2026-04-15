@@ -115,7 +115,7 @@
 
 ## 5. 备份与可恢复性线
 - 优先级：中
-- 最近更新时间：2026-04-15
+- 最近更新时间：2026-04-15 14:39
 - 阻塞状态：低阻塞
 - 下一次触发条件：关键配置有大改，或需要做阶段性快照时
 
@@ -123,11 +123,13 @@
 - 大盘目录已准备好：`/www/manmanai/openclaw`
 - 备份目录已准备好：`/www/manmanai/openclaw/backup`
 - 已有备份脚本与快照基础。
+- 最新已执行备份快照：`/www/manmanai/openclaw/backup/snapshots/2026-04-15-143902`
 
 ### 已确认事实
 - 大文件走 `/www/manmanai/openclaw`。
 - 主目录仍在 `/root/.openclaw` 与 `/root/.openclaw/workspace`。
 - 若未来重装系统，只保住 `/www` 盘还不够，核心配置仍需备份。
+- 本次快照总体积约 `46M`，其中 agents 约 `42M`，workspace 约 `3.8M`，memory 约 `72K`，config 约 `12K`。
 
 ### 下一步
 - 持续保持快照可恢复。
