@@ -67,6 +67,7 @@
 - 系统状态文档：`/root/.openclaw/workspace/SYSTEM-STATE.md`
 - 恢复文档：`/root/.openclaw/workspace/RESTORE.md`
 - CLI 清单：`/root/.openclaw/workspace/CLI-INVENTORY.md`
+- 新机器准备检查脚本：`/root/.openclaw/workspace/scripts/check-new-machine-readiness.sh`
 - 迁移前置检查脚本：`/root/.openclaw/workspace/scripts/check-migration-prereqs.sh`
 - 半自动迁移脚本：`/root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh`
 
@@ -140,7 +141,13 @@
 - OpenClaw
 - 必要全局 CLI
 
-可先运行前置检查脚本（在目标机器按需调整路径基线后使用）：
+建议先运行新机器准备检查脚本：
+
+```bash
+bash /root/.openclaw/workspace/scripts/check-new-machine-readiness.sh
+```
+
+通过后，再运行迁移前置检查脚本（在目标机器按需调整路径基线后使用）：
 
 ```bash
 bash /root/.openclaw/workspace/scripts/check-migration-prereqs.sh
@@ -284,6 +291,7 @@ bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-
 - `/root/.openclaw/workspace/SYSTEM-STATE.md`
 - `/root/.openclaw/workspace/MIGRATION.md`
 - `/root/.openclaw/workspace/CLI-INVENTORY.md`
+- `/root/.openclaw/workspace/scripts/check-new-machine-readiness.sh`
 - `/root/.openclaw/workspace/scripts/check-migration-prereqs.sh`
 - `/root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh`
 

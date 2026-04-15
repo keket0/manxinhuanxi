@@ -219,6 +219,13 @@ node -v
 openclaw gateway status
 ```
 
+如果不想手工逐项看，也可以直接运行：
+
+```bash
+bash /root/.openclaw/workspace/scripts/check-new-machine-readiness.sh
+bash /root/.openclaw/workspace/scripts/check-migration-prereqs.sh
+```
+
 如果这些都正常，再继续看 systemd、代理和业务能力。
 
 ---
@@ -242,5 +249,9 @@ openclaw gateway status
 - `python3`
 - `curl`
 - `npx`
+
+### 对应检查脚本
+- 新机器准备度：`/root/.openclaw/workspace/scripts/check-new-machine-readiness.sh`
+- 恢复前置条件：`/root/.openclaw/workspace/scripts/check-migration-prereqs.sh`
 
 这样迁移时就不会陷入“文件都恢复了，但工具链没起来”的假恢复状态。
