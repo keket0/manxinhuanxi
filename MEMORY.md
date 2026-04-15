@@ -34,6 +34,7 @@
 - `/www/manmanai/buye/vod/routes` 是主人存放大量不夜 JS 源的主学习目录，后续学习不夜源应优先从这里按类型拆解：影视源、网盘源、聚合配置、功能目录、后台 API 控制器。
 - 以后主人要求修改 `不夜自用`、`不夜分享`、`pg自用`、`pg共享/pg分享` 这四个配置时，可能只会给“源关键字”而不是完整条目名。此时我应先按代号文件搜索匹配关键字，列举出命中的候选源给主人确认，再根据主人指定的具体条目执行替换，不能擅自猜测目标条目。
 - 主人的 OpenWrt 在 `192.168.50.2`，已确认可通过 SSH 访问，并且 LuCI Web 后台正常可打开和登录，当前不需要为基础网页管理额外补装核心组件。
+- 主人的 OpenClaw Web 已改为局域网可访问，当前地址是 `http://192.168.50.100:18789/`；Gateway 已从 loopback 改为 `bind=lan`，并改为密码登录模式。
 ## 环境与基础结论
 - OpenClaw 主工作区在 `/root/.openclaw/workspace`。
 - 大文件目录使用 `/www/manmanai/openclaw`，适合 downloads、artifacts、browser-data、tts-output、logs 等大体积产物。
