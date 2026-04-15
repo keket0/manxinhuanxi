@@ -12,6 +12,7 @@ SNAPSHOT_NAME=
 APPLY=0
 RESTART_SERVICE=0
 SKIP_AGENTS=0
+ONLY_ITEMS=
 
 usage() {
   cat <<'EOF'
@@ -25,6 +26,8 @@ Options:
   --latest-snapshot       使用 snapshots 下最新快照。
   --snapshot NAME         使用指定快照名，例如 2026-04-15-152820。
   --skip-agents           跳过 agents 目录恢复。
+  --only ITEMS            只恢复指定内容，逗号分隔。
+                           可选：config,workspace,memory,agents,service,skills
   --backup-root PATH      指定备份根目录，默认 /www/manmanai/openclaw/backup。
   --target-home PATH      指定目标 OpenClaw 主目录，默认 /root/.openclaw。
   --target-systemd PATH   指定目标 systemd 用户目录，默认 /root/.config/systemd/user。
@@ -54,6 +57,10 @@ while [ $# -gt 0 ]; do
       shift
       ;;
     --skip-agents) SKIP_AGENTS=1 ;;
+    --only)
+      ONLY_ITEMS="${2:-}"
+      shift
+      ;;
     --backup-root)
       BACKUP_ROOT="${2:-}"
       shift
@@ -155,6 +162,17 @@ run() {
   fi
 }
 
+want_item() {
+  local item="$1"
+  if [ -z "$ONLY_ITEMS" ]; then
+    return 0
+  fi
+  case ",$ONLY_ITEMS," in
+    *",$item,"*) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
 backup_existing() {
   local src="$1"
   local dest_backup="$2"
@@ -182,13 +200,20 @@ restore_dir() {
   run "cp -a \"$src\" \"$dst\""
 }
 
-need_path "$SRC_CONFIG"
-need_path "$SRC_WORKSPACE"
-need_path "$SRC_MEMORY"
-need_path "$SRC_SERVICE"
-if [ "$SKIP_AGENTS" -ne 1 ]; then
-  need_path "$SRC_AGENTS"
-fi
+restore_subdir() {
+  local src="$1"
+  local dst="$2"
+  local backup_dst="$3"
+  backup_existing "$dst" "$backup_dst"
+  run "mkdir -p \"$(dirname "$dst")\""
+  run "cp -a \"$src\" \"$dst\""
+}
+
+if want_item config; then need_path "$SRC_CONFIG"; fi
+if want_item workspace || want_item skills; then need_path "$SRC_WORKSPACE"; fi
+if want_item memory; then need_path "$SRC_MEMORY"; fi
+if want_item service; then need_path "$SRC_SERVICE"; fi
+if want_item agents && [ "$SKIP_AGENTS" -ne 1 ]; then need_path "$SRC_AGENTS"; fi
 
 say "== OpenClaw migration restore helper =="
 say "MODE=$MODE"
@@ -199,17 +224,50 @@ say "PRE_RESTORE_BACKUP_ROOT=$PRE_RESTORE_BACKUP_ROOT"
 say "APPLY=$APPLY"
 say "RESTART_SERVICE=$RESTART_SERVICE"
 say "SKIP_AGENTS=$SKIP_AGENTS"
+say "ONLY_ITEMS=${ONLY_ITEMS:-all}"
 say ""
 
-restore_file "$SRC_CONFIG" "$DST_CONFIG" "$PRE_RESTORE_BACKUP_ROOT/openclaw/openclaw.json"
-restore_dir "$SRC_WORKSPACE" "$DST_WORKSPACE" "$PRE_RESTORE_BACKUP_ROOT/openclaw/workspace"
-restore_dir "$SRC_MEMORY" "$DST_MEMORY" "$PRE_RESTORE_BACKUP_ROOT/openclaw/memory"
-if [ "$SKIP_AGENTS" -ne 1 ]; then
-  restore_dir "$SRC_AGENTS" "$DST_AGENTS" "$PRE_RESTORE_BACKUP_ROOT/openclaw/agents"
+if want_item config; then
+  restore_file "$SRC_CONFIG" "$DST_CONFIG" "$PRE_RESTORE_BACKUP_ROOT/openclaw/openclaw.json"
+else
+  say "[SKIP] 跳过 config 恢复"
+fi
+
+if want_item skills; then
+  if [ ! -d "$SRC_WORKSPACE/skills" ]; then
+    echo "缺少 skills 恢复源: $SRC_WORKSPACE/skills" >&2
+    exit 1
+  fi
+  restore_subdir "$SRC_WORKSPACE/skills" "$DST_WORKSPACE/skills" "$PRE_RESTORE_BACKUP_ROOT/openclaw/workspace-skills"
+else
+  if want_item workspace; then
+    restore_dir "$SRC_WORKSPACE" "$DST_WORKSPACE" "$PRE_RESTORE_BACKUP_ROOT/openclaw/workspace"
+  else
+    say "[SKIP] 跳过 workspace 恢复"
+  fi
+fi
+
+if want_item memory; then
+  restore_dir "$SRC_MEMORY" "$DST_MEMORY" "$PRE_RESTORE_BACKUP_ROOT/openclaw/memory"
+else
+  say "[SKIP] 跳过 memory 恢复"
+fi
+
+if want_item agents; then
+  if [ "$SKIP_AGENTS" -ne 1 ]; then
+    restore_dir "$SRC_AGENTS" "$DST_AGENTS" "$PRE_RESTORE_BACKUP_ROOT/openclaw/agents"
+  else
+    say "[SKIP] 已请求跳过 agents 恢复"
+  fi
 else
   say "[SKIP] 跳过 agents 恢复"
 fi
-restore_file "$SRC_SERVICE" "$DST_SERVICE" "$PRE_RESTORE_BACKUP_ROOT/systemd/$SERVICE_NAME"
+
+if want_item service; then
+  restore_file "$SRC_SERVICE" "$DST_SERVICE" "$PRE_RESTORE_BACKUP_ROOT/systemd/$SERVICE_NAME"
+else
+  say "[SKIP] 跳过 service 恢复"
+fi
 
 if [ "$RESTART_SERVICE" -eq 1 ]; then
   run "systemctl --user daemon-reload"

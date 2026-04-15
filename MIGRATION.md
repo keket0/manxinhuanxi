@@ -169,9 +169,27 @@ bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-
 bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-snapshot --apply --restart-service
 ```
 
+如果只想选择性恢复一部分内容，也可以这样：
+
+```bash
+# 只恢复配置
+bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-snapshot --only config
+
+# 只恢复记忆
+bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-snapshot --only memory
+
+# 只恢复技能目录（workspace/skills）
+bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-snapshot --only skills
+
+# 同时恢复配置 + 记忆 + systemd 服务文件
+bash /root/.openclaw/workspace/scripts/migrate-openclaw-from-backup.sh --latest-snapshot --only config,memory,service
+```
+
 说明：
 - 默认是 dry-run，只预览，不写入。
 - `--apply` 才会真正覆盖恢复。
+- `--only` 支持：`config,workspace,memory,agents,service,skills`
+- `skills` 只恢复 `workspace/skills`，不会覆盖整个 workspace。
 - 执行前会把目标机当前文件先移动到临时目录做现场备份。
 - `--restart-service` 会执行 `systemctl --user daemon-reload`、`enable`、`restart` 与状态检查。
 
