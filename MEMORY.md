@@ -22,6 +22,7 @@
   2. GitHub 高 star 免费项目或技能
 - 安装技能不能只看“装上”，还要做最小可用性验证和学习结论。
 - 持续项目与长期待办统一维护在 `PROJECTS.md`，避免只记过去，不追踪未来。
+- `PROJECTS.md` 里的项目线默认包含：优先级、最近更新时间、阻塞状态、下一次触发条件，方便 heartbeat 推进。
 
 ## 环境与基础结论
 - OpenClaw 主工作区在 `/root/.openclaw/workspace`。

@@ -7,6 +7,7 @@ Priority order:
 2. If memory files are missing important decisions from today, write them down.
 3. If today's daily note is messy, distill it into a short end-of-day summary.
 4. If enough new durable context accumulated, promote stable items into `MEMORY.md`.
+5. If there is no urgent user interruption, check `PROJECTS.md` and advance the highest-value active line.
 
 ## Daily journal checklist
 - Keep `memory/YYYY-MM-DD.md` updated during the day.
@@ -19,6 +20,7 @@ Priority order:
 
 ## Retrieval rule
 - Before answering about prior work, preferences, decisions, dates, or todos, use memory retrieval first.
+- When choosing what to work on proactively, consult `PROJECTS.md` first.
 
 ## Skill expansion rule
 - If a missing capability keeps recurring, look for free skills first:
