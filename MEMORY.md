@@ -30,6 +30,14 @@
 - 当前策略是：主目录 `/root/.openclaw` 与 `/root/.openclaw/workspace` 保持原位，大文件优先落到 `/www/manmanai/openclaw`。
 - 已准备大盘备份目录 `/www/manmanai/openclaw/backup`，用于后续快照与恢复。
 
+## 常用官方入口与资料源
+- OpenClaw 官方网站：`https://openclaw.ai`
+- OpenClaw 官方文档：`https://docs.openclaw.ai`
+- OpenClaw GitHub 仓库：`https://github.com/openclaw/openclaw`
+- ClawHub 技能广场：`https://clawhub.ai`
+- Awesome OpenClaw Skills 合集：`https://github.com/VoltAgent/awesome-openclaw-skills`
+- 后续如需查官方说明、能力边界、技能来源，优先从这组入口开始。
+
 ## 代理与 Telegram 线稳定事实
 - OpenClaw gateway 当前使用全局代理：`http://192.168.50.2:5898`。
 - `channels.telegram.proxy` 需要保留，不能随便移除，否则 Telegram 可能失联。
