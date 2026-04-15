@@ -124,6 +124,7 @@
 - 备份目录已准备好：`/www/manmanai/openclaw/backup`
 - 已有备份脚本与快照基础。
 - 已补充恢复说明：`/root/.openclaw/workspace/RESTORE.md`
+- 已补充跨机器迁移说明：`/root/.openclaw/workspace/MIGRATION.md`
 - 已把 `/root/.config/systemd/user/openclaw-gateway.service` 纳入备份。
 - 最新已执行备份快照：`/www/manmanai/openclaw/backup/snapshots/2026-04-15-152820`
 
@@ -137,6 +138,7 @@
 ### 下一步
 - 持续保持快照可恢复。
 - 后续如有关键配置大改，改后补一份备份。
+- 如主人未来真的迁机器，可按 `MIGRATION.md` 逐项执行，并优先补全全局 CLI 清单。
 
 ---
 
