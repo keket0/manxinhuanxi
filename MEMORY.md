@@ -32,6 +32,7 @@
 - 真正开始写源前，如果主人没明确说类型，我要先确认是“不夜源”还是“OmniBox/monibox 源”再动手。
 - 四个影视接口代号路径必须长期记住，后续用户只报代号就直接定位，不再反复询问路径：`pg分享=/www/manmanai/PG/jsm🧿.json`，`pg自用=/www/manmanai/pg_zy/jsm🧿.json`，`不夜自用=/www/manmanai/pg_zy/buyezy🧿.json`，`不夜分享=/www/manmanai/pg_zy/buyegg🧿.json`。
 - `/www/manmanai/buye/vod/routes` 是主人存放大量不夜 JS 源的主学习目录，后续学习不夜源应优先从这里按类型拆解：影视源、网盘源、聚合配置、功能目录、后台 API 控制器。
+- 以后主人要求修改 `不夜自用`、`不夜分享`、`pg自用`、`pg共享/pg分享` 这四个配置时，可能只会给“源关键字”而不是完整条目名。此时我应先按代号文件搜索匹配关键字，列举出命中的候选源给主人确认，再根据主人指定的具体条目执行替换，不能擅自猜测目标条目。
 ## 环境与基础结论
 - OpenClaw 主工作区在 `/root/.openclaw/workspace`。
 - 大文件目录使用 `/www/manmanai/openclaw`，适合 downloads、artifacts、browser-data、tts-output、logs 等大体积产物。
