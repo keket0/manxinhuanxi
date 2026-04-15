@@ -235,6 +235,7 @@
 - `tavily-search`
 - `duckduckgo-search`
 - `telegram-bot-manager`
+- `liang-tavily-extract`
 
 ### B. 已装且高价值，但当前偏参考 / 指南型
 - `telegram`
@@ -249,8 +250,10 @@
 ### C. 已装但需额外环境 / 外部运行时
 - `openai-tts`（缺有效官方 OpenAI key）
 - `openclaw-web-automation`（缺外部 Automation Kit Python runtime / repo）
-- `cn-ecommerce-search`（依赖 `npx @shopmeagent/cn-ecommerce-search-mcp`，当前这台机器直连 npm registry 遇到 `ECONNRESET`）
-- `liang-tavily-extract`（文档和依赖已齐，建议后续补一次真实抽取实测）
+- `cn-ecommerce-search`（依赖 `npx @shopmeagent/cn-ecommerce-search-mcp`，补代理后返回 npm `404 Not Found`，更像上游包名失效/下架/私有不可见，而不只是网络问题）
+
+### C+ 已实测可用，但仍建议保留运行时前提意识
+- `liang-tavily-extract`（已实测可抽取 `https://example.com`，依赖 `node` + `TAVILY_API_KEY`）
 
 ### D. 已装但当前包/形态不适合直接执行
 - `agent-browser-stagehand`（skill 包不完整，缺 `package.json` / 源码）
