@@ -21,6 +21,7 @@
   1. 官方 ClawHub
   2. GitHub 高 star 免费项目或技能
 - 安装技能不能只看“装上”，还要做最小可用性验证和学习结论。
+- 持续项目与长期待办统一维护在 `PROJECTS.md`，避免只记过去，不追踪未来。
 
 ## 环境与基础结论
 - OpenClaw 主工作区在 `/root/.openclaw/workspace`。
