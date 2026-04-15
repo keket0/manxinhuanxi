@@ -67,6 +67,7 @@
 - 系统状态文档：`/root/.openclaw/workspace/SYSTEM-STATE.md`
 - 恢复文档：`/root/.openclaw/workspace/RESTORE.md`
 - CLI 清单：`/root/.openclaw/workspace/CLI-INVENTORY.md`
+- 迁移前置检查脚本：`/root/.openclaw/workspace/scripts/check-migration-prereqs.sh`
 
 ---
 
@@ -137,6 +138,12 @@
 - Node
 - OpenClaw
 - 必要全局 CLI
+
+可先运行前置检查脚本（在目标机器按需调整路径基线后使用）：
+
+```bash
+bash /root/.openclaw/workspace/scripts/check-migration-prereqs.sh
+```
 
 ### 第二步，恢复核心文件
 按顺序恢复：
@@ -262,6 +269,7 @@
 - `/root/.openclaw/workspace/SYSTEM-STATE.md`
 - `/root/.openclaw/workspace/MIGRATION.md`
 - `/root/.openclaw/workspace/CLI-INVENTORY.md`
+- `/root/.openclaw/workspace/scripts/check-migration-prereqs.sh`
 
 这样新机器上不会只有“备份文件”，还会有：
 - 恢复说明
@@ -275,6 +283,5 @@
 如果要把迁移能力继续提高，下一步建议补：
 - 更完整的 systemd / crontab 自定义项清单
 - 一份半自动迁移脚本
-- 一份新机器安装前置检查脚本
 
 做到这一步，跨机器恢复会更接近可重复执行，而不只是“手工迁移可行”。
