@@ -1,6 +1,6 @@
 # PROJECTS.md
 
-更新时间：2026-04-15
+更新时间：2026-04-16
 
 这个文件用于维护持续项目、长期待办、当前状态和下一步。它不是流水账，而是项目索引。
 
@@ -45,6 +45,7 @@
 - 已建立：
   - `INSTALLED_SKILLS_MAP.md`
   - `SKILLS_DEEP_DIVE_2026-04-15.md`
+- 2026-04-16 已新增从 GitHub 仓库 `JimLiu/baoyu-skills` 项目级全量安装的一组 baoyu 技能，当前 `.agents/skills/` 下已可见 22 个相关技能。
 
 ### 已确认主力技能
 - `agent-browser-core`
@@ -63,6 +64,7 @@
 ### 下一步
 - 需要补能力时，优先官方 ClawHub 和 GitHub 高 star 免费来源。
 - 对新装技能保持“先装，再最小验证，再学习结论”的流程。
+- 后续如主人要实际使用 baoyu 技能，先按具体任务筛选最合适的 skill，再补充针对性学习和实战验证，避免一次性启用高风险发布类能力。
 
 ---
 
@@ -159,7 +161,33 @@
 
 ---
 
-## 7. 当前长期待办清单
+## 7. OpenClaw Web 访问线
+- 优先级：高
+- 最近更新时间：2026-04-16
+- 阻塞状态：当前可用，后续以稳定维护为主
+- 下一次触发条件：主人再次反馈 Web 控制台无法访问、密码登录失败、反代异常，或需要从临时方案切到更稳的 HTTPS 正路
+
+### 当前状态
+- OpenClaw Gateway 当前已恢复为 `bind=lan`，密码登录可用。
+- 局域网地址 `http://192.168.50.100:18789/` 可访问。
+- Lucky 反代 `https://claw.keket.cn:7788/` 已确认可正常密码登录。
+- 当前反代方案的关键点已确认：`gateway.controlUi.allowedOrigins` 必须包含 `https://claw.keket.cn:7788`。
+
+### 已确认事实
+- 之前失败的真实根因不是密码错误，而是 WebSocket 握手阶段的 `origin not allowed`。
+- `gateway.controlUi.allowedOrigins` 至少需要包含：
+  - `http://192.168.50.100:18789`
+  - `http://openclaw.local:18789`
+  - `https://claw.keket.cn:7788`
+- 当前仍属于临时可用优先方案，`dangerouslyDisableDeviceAuth=true` 还在使用中。
+
+### 下一步
+- 若主人继续用当前方案，重点是保持反代域名与 allowedOrigins 一致，不要漏配。
+- 若后续要做长期加固，优先考虑更标准的 HTTPS 正路，并评估撤回 break-glass 配置。
+
+---
+
+## 8. 当前长期待办清单
 
 ### 高优先级
 - 持续执行每日总结 / 日记
