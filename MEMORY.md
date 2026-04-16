@@ -40,6 +40,8 @@
 - OpenClaw 主工作区在 `/root/.openclaw/workspace`。
 - 大文件目录使用 `/www/manmanai/openclaw`，适合 downloads、artifacts、browser-data、tts-output、logs 等大体积产物。
 - 当前策略是：主目录 `/root/.openclaw` 与 `/root/.openclaw/workspace` 保持原位，大文件优先落到 `/www/manmanai/openclaw`。
+- 2026-04-16 主人进一步明确新的统一落盘规则，且适用于后续各个 agent：小配置、小代码、小文本继续放各自原 workspace；音频、下载、浏览器数据、临时产物、大文件优先放 `/www/manmanai/openclaw`。
+- 后续如果我要生成文件，默认先按这个规则分流，不再反复确认常规落盘位置。
 - 已准备大盘备份目录 `/www/manmanai/openclaw/backup`，用于后续快照与恢复。
 - 主人的 Docker 项目统一放在 `/www/manmanai/docker/<项目名>/` 下，每个项目目录内固定放 `docker-compose.yml`，方便整洁管理与手动维护。
 - 以后如需新建 Docker 项目，应按“创建项目目录 -> 在目录内写好 `docker-compose.yml` -> 进入该目录执行 `docker-compose up -d`”的流程进行。
