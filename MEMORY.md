@@ -35,6 +35,7 @@
 - 以后主人要求修改 `不夜自用`、`不夜分享`、`pg自用`、`pg共享/pg分享` 这四个配置时，可能只会给“源关键字”而不是完整条目名。此时我应先按代号文件搜索匹配关键字，列举出命中的候选源给主人确认，再根据主人指定的具体条目执行替换，不能擅自猜测目标条目。
 - 主人的 OpenWrt 在 `192.168.50.2`，已确认可通过 SSH 访问，并且 LuCI Web 后台正常可打开和登录，当前不需要为基础网页管理额外补装核心组件。
 - 主人的 OpenClaw Web 已改为局域网可访问，当前地址是 `http://192.168.50.100:18789/`；Gateway 已从 loopback 改为 `bind=lan`，并改为密码登录模式。
+- 2026-04-16 已确认通过 Lucky 反代 `http://192.168.50.100:18789/` 到 `https://claw.keket.cn:7788/` 后可正常使用密码登录。该场景要点是 `gateway.controlUi.allowedOrigins` 需长期包含 `https://claw.keket.cn:7788`，否则会被 `origin not allowed` 拒绝。
 ## 环境与基础结论
 - OpenClaw 主工作区在 `/root/.openclaw/workspace`。
 - 大文件目录使用 `/www/manmanai/openclaw`，适合 downloads、artifacts、browser-data、tts-output、logs 等大体积产物。
@@ -53,8 +54,14 @@
 - 后续如需查官方说明、能力边界、技能来源，优先从这组入口开始。
 
 ## 代理与 Telegram 线稳定事实
-- OpenClaw gateway 当前使用全局代理：`http://192.168.50.2:5898`。
+- OpenClaw gateway 先前曾使用全局代理：`http://192.168.50.2:5898`，但为避免 browser 被 SSRF / policy 拦截，当前默认方案已改为不恢复 gateway 全局代理。
 - `channels.telegram.proxy` 需要保留，不能随便移除，否则 Telegram 可能失联。
+- 主人已在 2026-04-16 明确要求：Telegram 专用代理要长期保持，不要去触碰，后续排障、改代理、改网络策略时都不得擅自改动这条配置。
+- 2026-04-16 已完成 GitHub CLI `gh` 持久登录，当前登录用户为 `keket0`，认证信息由 `gh` 保存在 `/root/.config/gh/hosts.yml`。后续优先直接复用该登录态，不再默认重复走网页设备码授权。
+- 2026-04-16 已再次确认 browser 当前可用，包括成功打开并读取 `example.com`、`python.org`、`github.com`。后续判断 browser 问题时，要先区分“整体故障”“单次超时”“站点策略拦截”，不要再混为一谈。
+- 主人已在 2026-04-16 明确要求：以后若需要代理，只按单次命令或单个工具单独加代理，不恢复全局代理作为默认方案。
+- 当前统一使用的代理地址是：`http://192.168.50.2:5898`。该地址目前用于 Telegram 专用代理，也用于我在需要时按次给单个命令或单个工具临时加代理。
+- 主人已在 2026-04-16 明确确认对代理策略的长期理解：全局代理是“很多程序默认都走代理”，省事但影响面大、容易互相打架，也会伤到 OpenClaw browser；单独代理是“谁需要谁临时走代理”，更适合当前这台机器的长期稳定方案。后续默认保持单独代理，不回到全局代理。
 - Telegram 图片问题的最终真实根因，不是 transport / TLS / 代理代码层，而是 Telegram 机器人隐私模式设置；用户手动修复后已恢复。
 - Telegram 图片问题已结案，但其他 Telegram API 偶发失败日志不能与该问题混为一谈。
 
