@@ -144,14 +144,17 @@ Things like:
 
 ### `/www/manmanai/openclaw` 目录约定
 
-- 2026-04-18 起统一整理为三类主区 + 顶层运行目录保留：
-  - `backups/`：备份相关
+- 2026-04-18 起按“顶层运行目录保留 + 备份区收口”整理：
+  - 顶层运行目录继续保留：`downloads`、`exports`、`artifacts`、`browser-data`、`cache`、`logs`、`tmp`、`tts-output`
+  - `backups/`：所有备份相关统一收口
   - `archive/`：低频历史归档
   - `trash/`：可回收暂存
-  - 顶层运行目录继续保留：`downloads`、`exports`、`artifacts`、`browser-data`、`cache`、`logs`、`tmp`、`tts-output`
 - 关键路径：
   - 本地配置型备份：`/www/manmanai/openclaw/backups/local-config/root/.openclaw`
+  - 本地配置附加文件：`/www/manmanai/openclaw/backups/local-config/config-extras`
+  - GitHub 私有仓库本机工作区：`/www/manmanai/openclaw/backups/remote-repos/backup-private`
   - 快照目录：`/www/manmanai/openclaw/backups/snapshots`
+  - 旧布局归档：`/www/manmanai/openclaw/backups/archive/pre-reorg-layout`
   - 运行下载目录：`/www/manmanai/openclaw/downloads`
   - 导出文件目录：`/www/manmanai/openclaw/exports`
 - 统一规则：
