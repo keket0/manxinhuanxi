@@ -152,14 +152,12 @@ Things like:
 - 关键路径：
   - 本地配置型备份：`/www/manmanai/openclaw/backups/local-config/root/.openclaw`
   - 本地配置附加文件：`/www/manmanai/openclaw/backups/local-config/config-extras`
-  - GitHub 私有仓库本机工作区：`/www/manmanai/openclaw/backups/remote-repos/backup-private`
-  - 快照目录：`/www/manmanai/openclaw/backups/snapshots`
-  - 旧布局归档：`/www/manmanai/openclaw/backups/archive/pre-reorg-layout`
   - 运行下载目录：`/www/manmanai/openclaw/downloads`
   - 导出文件目录：`/www/manmanai/openclaw/exports`
 - 统一规则：
   - 本地只保留一套配置型备份
   - GitHub 是远程私有备份目标，不算本地备份
+  - GitHub 推送使用临时工作区，完成后删除，不在 `/www/manmanai/openclaw/backups` 常驻保留副本
   - 本地配置备份与 GitHub 远程备份内容规则保持一致
   - 必须保留关键配置文件、workspace、学习技能、agents、记忆、关键脚本与关键 service 配置
   - 默认不保留下载、browser-data、media、logs、cache、tmp 等运行产物
