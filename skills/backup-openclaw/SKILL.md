@@ -1,6 +1,6 @@
 ---
 name: backup-openclaw
-description: Create a config-only OpenClaw backup for this machine when the user explicitly says "备份龙虾" or clearly asks to back up OpenClaw to local storage and GitHub. Use for the fixed local+GitHub backup workflow, local retention of the latest 3 backups, temporary GitHub clone/push, and avoiding persistent duplicate local GitHub working copies.
+description: Create a config-only OpenClaw backup for this machine when the user explicitly says "备份龙虾", "龙虾备份", or clearly asks to back up OpenClaw to local storage and GitHub. Use for the fixed local+GitHub backup workflow, local retention of the latest 3 backups, temporary GitHub clone/push, and avoiding persistent duplicate local GitHub working copies.
 ---
 
 # Backup OpenClaw
@@ -11,6 +11,7 @@ description: Create a config-only OpenClaw backup for this machine when the user
 
 只在用户**明确**下达以下意图时使用：
 - “备份龙虾”
+- “龙虾备份”
 - 明确要求备份 OpenClaw 到本地
 - 明确要求同时同步到 GitHub 私有仓库
 
