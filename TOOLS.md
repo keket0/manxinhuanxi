@@ -144,19 +144,20 @@ Things like:
 
 ### `/www/manmanai/openclaw` 目录约定
 
-- 2026-04-18 起统一整理为四大区：
+- 2026-04-18 起统一整理为三类主区 + 顶层运行目录保留：
   - `backups/`：备份相关
-  - `runtime/`：运行产物与大文件
   - `archive/`：低频历史归档
   - `trash/`：可回收暂存
+  - 顶层运行目录继续保留：`downloads`、`exports`、`artifacts`、`browser-data`、`cache`、`logs`、`tmp`、`tts-output`
 - 关键路径：
   - 本地配置型备份：`/www/manmanai/openclaw/backups/local-config/root/.openclaw`
-  - GitHub 私有备份仓库工作区：`/www/manmanai/openclaw/backups/github/backup-private`
   - 快照目录：`/www/manmanai/openclaw/backups/snapshots`
-  - 运行下载目录：`/www/manmanai/openclaw/runtime/downloads`
-  - 导出文件目录：`/www/manmanai/openclaw/runtime/exports`
+  - 运行下载目录：`/www/manmanai/openclaw/downloads`
+  - 导出文件目录：`/www/manmanai/openclaw/exports`
 - 统一规则：
-  - 本地配置备份与 GitHub 私有备份使用同一规则
+  - 本地只保留一套配置型备份
+  - GitHub 是远程私有备份目标，不算本地备份
+  - 本地配置备份与 GitHub 远程备份内容规则保持一致
   - 必须保留关键配置文件、workspace、学习技能、agents、记忆、关键脚本与关键 service 配置
   - 默认不保留下载、browser-data、media、logs、cache、tmp 等运行产物
 

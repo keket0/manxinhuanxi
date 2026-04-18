@@ -53,8 +53,9 @@
 - 2026-04-16 主人进一步明确新的统一落盘规则，且适用于后续各个 agent，包括未来新建的 agent：小配置、小代码、小文本继续放各自原 workspace；音频、下载、浏览器数据、临时产物、大文件优先放 `/www/manmanai/openclaw`。
 - 这条“文件分流落盘规则”已视为长期记忆，后续默认执行，新建 agent 时也要继承这条规则，不再反复确认常规落盘位置。
 - 已准备大盘备份目录 `/www/manmanai/openclaw`，用于后续快照、配置型备份、运行产物分流与恢复。
-- 2026-04-18 起，`/www/manmanai/openclaw` 目录统一整理为四大区：`backups/`、`runtime/`、`archive/`、`trash/`，避免继续散乱堆放。
-- 其中关键固定路径为：本地配置型备份 `backups/local-config/root/.openclaw`，GitHub 私有备份仓库工作区 `backups/github/backup-private`，快照目录 `backups/snapshots`，运行下载目录 `runtime/downloads`，导出目录 `runtime/exports`。
+- 2026-04-18 起，`/www/manmanai/openclaw` 目录统一整理为三类主区 + 顶层运行目录保留：`backups/`、`archive/`、`trash/`，同时继续保留顶层的 `downloads`、`exports`、`artifacts`、`browser-data`、`cache`、`logs`、`tmp`、`tts-output`，避免破坏原有使用路径。
+- 其中关键固定路径为：本地配置型备份 `backups/local-config/root/.openclaw`，快照目录 `backups/snapshots`，运行下载目录 `downloads`，导出目录 `exports`。
+- 2026-04-18 起，本地只保留一套配置型备份；GitHub 私有仓库属于远程备份目标，不算本地备份体系的一部分，不再把“GitHub 本地工作区副本”视为默认本地备份结构。
 - 2026-04-18 起，若备份到 GitHub 私有仓库或本地配置型备份目录，默认采用“龙虾重要配置 + 学习技能”方案，不备份下载内容、缓存、浏览器数据、日志、临时产物等大体积运行产物。后续备份应优先保留配置、workspace、agents、记忆、关键 service / 脚本，以及学习用 skills 目录等可恢复核心；不把 `downloads`、`artifacts`、`browser-data` 这类内容作为默认备份范围。关键配置文件必须备份。
 - 主人的 Docker 项目统一放在 `/www/manmanai/docker/<项目名>/` 下，每个项目目录内固定放 `docker-compose.yml`，方便整洁管理与手动维护。
 - 以后如需新建 Docker 项目，应按“创建项目目录 -> 在目录内写好 `docker-compose.yml` -> 进入该目录执行 `docker-compose up -d`”的流程进行。
