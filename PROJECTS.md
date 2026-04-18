@@ -217,7 +217,34 @@
 
 ---
 
-## 9. 当前长期待办清单
+## 9. 提醒助手线
+- 优先级：中
+- 最近更新时间：2026-04-18
+- 阻塞状态：部分阻塞
+- 下一次触发条件：主人继续推进提醒体系，或提供 Telegram bot token 以接入独立 TG
+
+### 当前状态
+- 已新建长期 agent：`tixingzhushou`
+- 已创建独立 workspace：`/root/.openclaw/workspace-tixingzhushou`
+- 已创建独立 agentDir：`/root/.openclaw/agents/tixingzhushou/agent`
+- 已写入 AGENTS.md / SOUL.md / USER.md / TOOLS.md / HEARTBEAT.md / IDENTITY.md
+- 目前 agent 本体已可被 OpenClaw 识别
+- Telegram 独立接入尚未完成
+
+### 当前阻塞
+- 还没有为 `tixingzhushou` 提供独立 Telegram bot token
+- 因此暂时还不能像 `xiaojizhe` 那样绑定自己的 Telegram account 和 routing
+
+### 下一步
+- 主人提供独立 Telegram bot token 后：
+  1. 增加 telegram account `tixingzhushou`
+  2. 增加 binding，把该 account 路由到 `tixingzhushou`
+  3. 重启 gateway 并做 probe 验证
+- 后续再把具体提醒规则逐步沉淀到该 agent 的记忆体系中
+
+---
+
+## 10. 当前长期待办清单
 
 ### 高优先级
 - 持续执行每日总结 / 日记
