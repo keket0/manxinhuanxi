@@ -56,6 +56,7 @@
 - 2026-04-18 起，`/www/manmanai/openclaw` 目录按“顶层运行目录保留 + 备份区收口”整理：继续保留顶层的 `downloads`、`exports`、`artifacts`、`browser-data`、`cache`、`logs`、`tmp`、`tts-output`，避免破坏原有使用路径；同时把备份相关统一收口到 `backups/`。
 - 其中关键固定路径为：本地配置型备份 `backups/local-config/root/.openclaw`，本地配置附加文件 `backups/local-config/config-extras`，GitHub 私有仓库本机工作区 `backups/remote-repos/backup-private`，快照目录 `backups/snapshots`，旧布局归档 `backups/archive/pre-reorg-layout`，运行下载目录 `downloads`，导出目录 `exports`。
 - 2026-04-18 起，本地只保留一套配置型备份；GitHub 私有仓库属于远程备份目标，不算本地备份体系的一部分，不再把“GitHub 本地工作区副本”视为默认本地备份结构。
+- 后续只有当主人明确下达“备份龙虾”或等价明确备份指令时，我才执行本地备份与 GitHub 远程备份；不能因为看见目录变化、整理过结构，或认为应该备份，就自行触发备份。
 - 2026-04-18 起，若备份到 GitHub 私有仓库或本地配置型备份目录，默认采用“龙虾重要配置 + 学习技能”方案，不备份下载内容、缓存、浏览器数据、日志、临时产物等大体积运行产物。后续备份应优先保留配置、workspace、agents、记忆、关键 service / 脚本，以及学习用 skills 目录等可恢复核心；不把 `downloads`、`artifacts`、`browser-data` 这类内容作为默认备份范围。关键配置文件必须备份。
 - 主人的 Docker 项目统一放在 `/www/manmanai/docker/<项目名>/` 下，每个项目目录内固定放 `docker-compose.yml`，方便整洁管理与手动维护。
 - 以后如需新建 Docker 项目，应按“创建项目目录 -> 在目录内写好 `docker-compose.yml` -> 进入该目录执行 `docker-compose up -d`”的流程进行。
