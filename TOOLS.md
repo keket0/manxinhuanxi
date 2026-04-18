@@ -124,7 +124,11 @@ Things like:
 - 以后备份到 GitHub 私有仓库时，只备份“龙虾重要配置”
 - 默认应备份：
   - `openclaw.json` 及相关关键配置备份
+  - 其他关键配置文件
   - `workspace`
+  - `workspace/skills`
+  - `workspace-xiaojizhe`
+  - `workspace-xiaojizhe/skills`
   - `agents`
   - 记忆文件
   - 关键脚本 / service 配置
