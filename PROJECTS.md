@@ -129,29 +129,30 @@
 
 ## 5. 备份与可恢复性线
 - 优先级：中
-- 最近更新时间：2026-04-15 14:39
+- 最近更新时间：2026-04-18
 - 阻塞状态：低阻塞
-- 下一次触发条件：关键配置有大改，或需要做阶段性快照时
+- 下一次触发条件：主人明确下令“备份龙虾”/“龙虾备份”，或关键配置有大改需要阶段性快照时
 
 ### 当前状态
-- 大盘目录已准备好：`/www/manmanai/openclaw`
-- 备份目录已准备好：`/www/manmanai/openclaw/backup`
-- 已有备份脚本与快照基础。
-- 已补充恢复说明：`/root/.openclaw/workspace/RESTORE.md`
-- 已补充跨机器迁移说明：`/root/.openclaw/workspace/MIGRATION.md`
-- 已把 `/root/.config/systemd/user/openclaw-gateway.service` 纳入备份。
-- 最新已执行备份快照：`/www/manmanai/openclaw/backup/snapshots/2026-04-15-152820`
+- 大盘目录已整理为：`/www/manmanai/openclaw`
+- 本地当前配置型备份固定路径：`/www/manmanai/openclaw/backups/local-config/root/.openclaw`
+- 本地历史备份策略已确定：每次只保留最新 3 份
+- GitHub 私有仓库只作为远程备份目标，不再在本地常驻保留 clone
+- 已把这套流程沉淀为技能：`/root/.openclaw/workspace/skills/backup-openclaw`
+- 最近一次 GitHub 远程备份提交：`055c158`
+- 最新快照目录：`/www/manmanai/openclaw/backups/snapshots/2026-04-18-100705`
 
 ### 已确认事实
 - 大文件走 `/www/manmanai/openclaw`。
 - 主目录仍在 `/root/.openclaw` 与 `/root/.openclaw/workspace`。
-- 若未来重装系统，只保住 `/www` 盘还不够，核心配置仍需备份。
-- 当前备份已覆盖 `openclaw.json`、workspace、memory、agents、`openclaw-gateway.service`。
-- 本次快照总体积约 `53M`，其中 agents 约 `49M`，workspace 约 `3.9M`，memory 约 `72K`，config 约 `12K`，systemd 服务文件约 `4.0K`。
+- 只有在主人明确下令“备份龙虾”或“龙虾备份”时，才执行本地备份和 GitHub 远程备份。
+- 本地与 GitHub 统一采用“配置型备份 + 学习技能”边界。
+- 默认不备份 `downloads`、`artifacts`、`browser-data`、`logs`、`cache`、`tmp` 等运行产物。
+- GitHub 推送应使用临时工作区，推送完成后删除，避免与本地备份形成重复占用。
 
 ### 下一步
-- 持续保持快照可恢复。
-- 后续如有关键配置大改，改后补一份备份。
+- 持续保持快照与配置型备份可恢复。
+- 下次再执行“备份龙虾”时，直接按 `backup-openclaw` 技能固定流程执行。
 - 如主人未来真的迁机器，可按 `MIGRATION.md` 逐项执行，并优先补全全局 CLI 清单。
 
 ---
@@ -199,7 +200,24 @@
 
 ---
 
-## 8. 当前长期待办清单
+## 8. 小记者内容线
+- 优先级：中
+- 最近更新时间：2026-04-18
+- 阻塞状态：按需触发
+- 下一次触发条件：主人提出小红书文案、配图、内容整理、发布准备或其他内容型任务
+
+### 当前状态
+- 已创建长期 agent：`xiaojizhe`
+- 主人已明确：以后凡是小红书内容相关工作，默认优先交给 `xiaojizhe` 处理
+- 主会话负责总调度、系统操作、跨线协同和必要回传
+
+### 下一步
+- 后续遇到小红书内容类任务时，优先调度给 `xiaojizhe`
+- 若涉及账号登录、浏览器环境、文件路径、消息发送等系统动作，再由主会话承接或协同
+
+---
+
+## 9. 当前长期待办清单
 
 ### 高优先级
 - 持续执行每日总结 / 日记
