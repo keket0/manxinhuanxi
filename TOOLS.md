@@ -119,6 +119,25 @@ Things like:
   2. 不要把站点限制误报成 browser 整体不可用
   3. 不要为修 browser 去碰 Telegram 专用代理
 
+### GitHub 备份边界
+
+- 以后备份到 GitHub 私有仓库时，只备份“龙虾重要配置”
+- 默认应备份：
+  - `openclaw.json` 及相关关键配置备份
+  - `workspace`
+  - `agents`
+  - 记忆文件
+  - 关键脚本 / service 配置
+- 默认不备份：
+  - `downloads`
+  - `artifacts`
+  - `browser-data`
+  - 各类缓存
+  - 日志
+  - 临时产物
+  - 纯运行期大文件
+- 原则：GitHub 私有仓库用于“可恢复核心配置”，不是拿大文件归档。
+
 ### Docker 项目约定
 
 - Docker 项目根目录：`/www/manmanai/docker`

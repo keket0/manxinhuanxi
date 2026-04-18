@@ -53,6 +53,7 @@
 - 2026-04-16 主人进一步明确新的统一落盘规则，且适用于后续各个 agent，包括未来新建的 agent：小配置、小代码、小文本继续放各自原 workspace；音频、下载、浏览器数据、临时产物、大文件优先放 `/www/manmanai/openclaw`。
 - 这条“文件分流落盘规则”已视为长期记忆，后续默认执行，新建 agent 时也要继承这条规则，不再反复确认常规落盘位置。
 - 已准备大盘备份目录 `/www/manmanai/openclaw/backup`，用于后续快照与恢复。
+- 2026-04-18 起，若备份到 GitHub 私有仓库，只备份“龙虾重要配置”，不备份下载内容、缓存、浏览器数据、日志、临时产物等大体积运行产物。后续 GitHub 备份应优先保留配置、workspace、agents、记忆、关键 service / 脚本等可恢复核心，不把 `downloads`、`artifacts`、`browser-data` 这类内容作为默认 GitHub 备份范围。
 - 主人的 Docker 项目统一放在 `/www/manmanai/docker/<项目名>/` 下，每个项目目录内固定放 `docker-compose.yml`，方便整洁管理与手动维护。
 - 以后如需新建 Docker 项目，应按“创建项目目录 -> 在目录内写好 `docker-compose.yml` -> 进入该目录执行 `docker-compose up -d`”的流程进行。
 - 以后如主人要求升级某个 Docker 项目，应进入对应项目目录，按固定升级命令执行：`docker-compose pull && docker-compose up -d --remove-orphans`。
