@@ -33,10 +33,8 @@ description: Create a config-only OpenClaw backup for this machine when the user
 - `openclaw.json.backup.*`
 - `exec-approvals.json`
 - `update-check.json`
-- `workspace`
-- `workspace/skills`
-- `workspace-xiaojizhe`
-- `workspace-xiaojizhe/skills`
+- 所有 `workspace*` 目录（例如 `workspace`、`workspace-xiaojizhe`、`workspace-agner` 以及后续新增 agent 的独立 workspace）
+- 各 `workspace*` 下的 `skills`
 - `agents`
 - `identity`
 - `devices`

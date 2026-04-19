@@ -20,8 +20,7 @@ copy_config_tree() {
   cp -a "$SRC/update-check.json" "$dst/" 2>/dev/null || true
   find "$SRC" -maxdepth 1 -type f \( -name 'openclaw.json.bak*' -o -name 'openclaw.json.backup.*' \) -exec cp -a {} "$dst/" \;
 
-  cp -a "$SRC/workspace" "$dst/"
-  cp -a "$SRC/workspace-xiaojizhe" "$dst/"
+  find "$SRC" -mindepth 1 -maxdepth 1 -type d -name 'workspace*' -exec cp -a {} "$dst/" \;
   cp -a "$SRC/agents" "$dst/"
   cp -a "$SRC/identity" "$dst/"
   cp -a "$SRC/devices" "$dst/"
@@ -32,17 +31,15 @@ copy_config_tree() {
   cp -a "$SRC/flows" "$dst/" 2>/dev/null || true
   cp -a "$SRC/tasks" "$dst/" 2>/dev/null || true
 
-  rm -rf \
-    "$dst/workspace/.git" \
-    "$dst/workspace-xiaojizhe/.git" \
-    "$dst/workspace/tmp" \
-    "$dst/workspace-xiaojizhe/tmp" \
-    "$dst/workspace/.openclaw" \
-    "$dst/workspace-xiaojizhe/.openclaw" \
-    "$dst/workspace/.agents" \
-    "$dst/workspace/state" \
-    "$dst/workspace/.clawhub" \
-    "$dst/workspace-xiaojizhe/.clawhub"
+  find "$dst" -mindepth 1 -maxdepth 1 -type d -name 'workspace*' | while read -r ws; do
+    rm -rf \
+      "$ws/.git" \
+      "$ws/tmp" \
+      "$ws/.openclaw" \
+      "$ws/.agents" \
+      "$ws/state" \
+      "$ws/.clawhub"
+  done
 
   find "$dst" -type d \( \
     -name '.qoder' -o -name '.mcpjam' -o -name '.pochi' -o -name '.augment' -o -name '.windsurf' -o -name '.crush' -o -name '.neovate' -o -name '.trae' -o -name '.kilocode' -o -name '.cortex' -o -name '.codebuddy' -o -name '.factory' -o -name '.junie' -o -name '.iflow' -o -name '.mux' -o -name '.bob' -o -name '.kiro' -o -name '.zencoder' -o -name '.commandcode' -o -name '.roo' -o -name '.kode' -o -name '.qwen' -o -name '.continue' -o -name '.claude' -o -name '.goose' -o -name '.adal' -o -name '.openhands' -o -name '.vibe' \
