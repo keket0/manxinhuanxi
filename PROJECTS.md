@@ -126,6 +126,7 @@
 - 持续执行，不靠临时记忆。
 - 适时把当天关键信息从 daily note 提炼进 `MEMORY.md`。
 - 后续每次新建 agent 时，同步检查其 `USER.md` / `AGENTS.md` / `HEARTBEAT.md` 是否已继承记忆检索与日记规则。
+- 默认使用 `AGENT_RULES_CHECKLIST.md` 做跨 agent 巡检与验收，避免遗漏新装 agent。
 
 ---
 
