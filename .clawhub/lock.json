@@ -112,6 +112,90 @@
     "proactive-agent": {
       "version": "3.1.0",
       "installedAt": 1776233107312
+    },
+    "skill-vetter-1-0-0": {
+      "version": "1.0.0",
+      "installedAt": 1776488371013
+    },
+    "xiaoding-skill-vetter": {
+      "version": "1.0.3",
+      "installedAt": 1776488377530
+    },
+    "azhua-skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1776488385020
+    },
+    "hsyhp-skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1776488392387
+    },
+    "chen-skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1776488399334
+    },
+    "skill-vetter-1": {
+      "version": "1.0.0",
+      "installedAt": 1776488406405
+    },
+    "nidhov01-skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1776488413998
+    },
+    "fox-skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1776488420780
+    },
+    "claw-skill-vetter-pro": {
+      "version": "1.0.0",
+      "installedAt": 1776488427578
+    },
+    "vetter": {
+      "version": "1.1.0",
+      "installedAt": 1776489013462
+    },
+    "self-evolving": {
+      "version": "1.0.0",
+      "installedAt": 1776489021480
+    },
+    "summarize-1-0-0": {
+      "version": "1.0.0",
+      "installedAt": 1776489028313
+    },
+    "afame": {
+      "version": "1.0.0",
+      "installedAt": 1776533822071
+    },
+    "self-improving-agent": {
+      "version": "3.0.16",
+      "installedAt": 1776710025901
+    },
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1776710029355
+    },
+    "ontology": {
+      "version": "1.0.4",
+      "installedAt": 1776710032613
+    },
+    "self-improving": {
+      "version": "1.2.16",
+      "installedAt": 1776710037434
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1776710040576
+    },
+    "gog": {
+      "version": "1.0.0",
+      "installedAt": 1776710046360
+    },
+    "polymarket-trade": {
+      "version": "1.0.6",
+      "installedAt": 1776710049965
+    },
+    "multi-search-engine": {
+      "version": "2.1.3",
+      "installedAt": 1776710055569
     }
   }
 }
