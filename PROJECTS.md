@@ -113,12 +113,14 @@
   - `HEARTBEAT.md`
 - 2026-04-17 已进一步明确为全局规则：所有现有和未来新建的 agent 都必须具备长期记忆，并在回答过去工作、偏好、决定、待办前先做记忆检索。
 - 2026-04-17 已进一步明确：每天做过的任务都要定期总结并写入日记，不允许只做不记。
+- 2026-04-20 主人再次确认并扩展适用范围：这套规则同样适用于以后安装的所有 agent；若缺能力，可优先从官方技能站或 GitHub 高 star 免费技能补齐，但必须坚持免费前提。
 
 ### 已确认规则
 - 过去事项先检索记忆再回答。
 - 每天要补总结和日记。
 - 稳定长期事实沉淀到 `MEMORY.md`。
 - 这套记忆与日记规则不只限于主会话，也适用于所有 agent。
+- 缺能力时，优先补官方技能站或 GitHub 高 star 免费技能，不使用默认付费路线。
 
 ### 下一步
 - 持续执行，不靠临时记忆。
@@ -217,34 +219,45 @@
 
 ---
 
-## 9. 提醒助手线
+## 9. Telegram 新 agent 接入线
 - 优先级：中
-- 最近更新时间：2026-04-18
-- 阻塞状态：部分阻塞
-- 下一次触发条件：主人继续推进提醒体系，或提供 Telegram bot token 以接入独立 TG
+- 最近更新时间：2026-04-19
+- 阻塞状态：当前可用
+- 下一次触发条件：主人继续新建 Telegram agent、要求验证新 bot 收发，或要给新 agent 补独立规则/人格
 
 ### 当前状态
-- 已新建长期 agent：`tixingzhushou`
-- 已创建独立 workspace：`/root/.openclaw/workspace-tixingzhushou`
-- 已创建独立 agentDir：`/root/.openclaw/agents/tixingzhushou/agent`
-- 已写入 AGENTS.md / SOUL.md / USER.md / TOOLS.md / HEARTBEAT.md / IDENTITY.md
-- 目前 agent 本体已可被 OpenClaw 识别
-- Telegram 独立接入尚未完成
-
-### 当前阻塞
-- 还没有为 `tixingzhushou` 提供独立 Telegram bot token
-- 因此暂时还不能像 `xiaojizhe` 那样绑定自己的 Telegram account 和 routing
+- 旧的提醒助手 `tixingzhushou` 已整套清理删除，不再作为长期 agent 维护。
+- 已新建长期 agent：`agner`
+- 已创建独立 workspace：`/root/.openclaw/workspace-agner`
+- 已创建独立 agentDir：`/root/.openclaw/agents/agner/agent`
+- 已把主 workspace 当前已安装 skills 同步到 `workspace-agner/skills`
+- 已完成 Telegram 独立接入，accountId 为：`agner`
+- 当前 `openclaw agents list --bindings` 已显示 `telegram agner: configured`
 
 ### 下一步
-- 主人提供独立 Telegram bot token 后：
-  1. 增加 telegram account `tixingzhushou`
-  2. 增加 binding，把该 account 路由到 `tixingzhushou`
-  3. 重启 gateway 并做 probe 验证
-- 后续再把具体提醒规则逐步沉淀到该 agent 的记忆体系中
+- 如主人开始使用该 bot，优先验证实际入站、回复链路与技能调用是否顺手
+- 如主人需要，再为 `agner` 单独补 persona、规则与记忆模板
+- 后续若继续新建 Telegram agent，直接复用这次已验证可用的账号 schema 与接入流程
 
 ---
 
-## 10. 当前长期待办清单
+## 10. 不夜源融合写法学习线
+- 优先级：中
+- 最近更新时间：2026-04-20
+- 阻塞状态：当前无硬阻塞，主要取决于主人是否继续投喂示例或要求实战改源
+- 下一次触发条件：主人继续发 MakkaPakka / 不夜融合示例、要求我按该范式改源，或需要把现有半成品源重构为可用融合版
+
+### 当前状态
+- 已确认单纯把 OmniBox / Widget 脚本“转壳”为不夜源，容易停在展示层，实际可用性和播放闭环不足。
+- 已从主人手动改好的 `追剧优选` 学到更成熟的融合范式：用成熟盘搜/播放内核承接新分类视图，而不是只做 `goSearch` 外跳目录源。
+- 当前最重要的可复用结构包括：`TVBOX_LIST_MODE`、`drive_all_*` 目录桥接、统一 `_search/_detail/_play` 主链路、分类分治处理后统一回收到 `_category`，以及 `fetchListFast + quickEnrich + enrichItem + DetailConcurrencyController` 的“先快出列表、后补细节”策略。
+
+### 下一步
+- 若主人继续发类似示例，优先提炼成可复用模板，而不是每次从零硬改。
+- 若主人要求继续做 `MakkaPakka` 类源，优先按“融合版”路线改，而不是先做 `goSearch` 壳子。
+- 后续如积累足够样本，可整理成一份专门的“不夜融合改源笔记/模板”。
+
+## 11. 当前长期待办清单
 
 ### 高优先级
 - 持续执行每日总结 / 日记
