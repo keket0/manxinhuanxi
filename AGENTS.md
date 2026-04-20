@@ -209,6 +209,18 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## Unified Agent Baseline
+
+All current and future agents must inherit these baseline rules:
+
+- Use long-term memory, not just temporary context.
+- Before answering about past work, preferences, decisions, dates, or todos, do memory retrieval first.
+- Keep daily summaries and journals for work done, instead of only acting without recording.
+- If a capability is missing, prefer adding free skills from the official skill site first, then GitHub high-star free sources.
+- Validate newly installed skills with a minimal usability check before treating them as long-term tools.
+
+For operational checks and onboarding, also follow `AGENT_RULES_CHECKLIST.md`.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
