@@ -107,6 +107,7 @@
 - 2026-04-21 主人进一步明确：技能默认要可全局使用，不只主会话可用，也包括 `agner` 以及后续新安装的 `agner` 类 agent；后续新增或补装技能时，默认应同步到对应 agent 的 workspace，使其可直接使用，避免能力不一致。
 - 但同步前仍要先做最小可用验证与学习结论，不机械堆技能。
 - 2026-04-18 起，网页自动化默认主链路改为 `agent-browser-clawdbot` / `agent-browser` CLI；OpenClaw 内置 `browser` 工具降为备用链路。后续优先用 `agent-browser` 处理多步网页操作、稳定 ref 定位、表单交互与流程自动化；只有在需要内置 browser 的截图、PDF、可视分析或特定集成能力时，再回退使用内置 `browser`。
+- 2026-04-21 主人进一步明确：全局默认优先使用 `agent-browser-clawdbot`，这条规则不仅适用于主会话，也适用于 `agner` 以及以后新添加的 `agner` 类 agent；后续做网页自动化时，默认优先走 `clawdbot`，不要把 `core` 当成首选实战入口。
 - `openai-tts` 当前阻塞不是网络，而是 OpenAI key 无效；换有效 key 后可恢复。
 - `claw-ds-generator` 当前更像不存在、已下架或名字不对，不应继续盲重试。
 - `cn-ecommerce-search` 旧版依赖包当前公开 npm `404`，主线应切到 `cn-ecommerce-search-v2`。
