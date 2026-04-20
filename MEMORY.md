@@ -103,6 +103,8 @@
   - `liang-tavily-extract`
   - `telegram-bot-manager`
   - `weather`
+- 2026-04-21 主人明确要求：按 ClawHub 商店当前“Most downloaded”前 10 技能进行安装、学习，并纳入可长期调用范围；其中主 workspace 已补装并同步到 `agner` 的新增技能包括：`self-improving-agent`、`skill-vetter`、`ontology`、`self-improving`、`github`、`gog`、`polymarket-trade`、`multi-search-engine`；原本已存在并继续纳入同批范围的有 `proactive-agent`、`weather`。
+- 以后凡是给主人或 `agner` 扩技能，默认先看是否需要同步到 `workspace-agner/skills`，避免主会话与 `agner` 能力漂移；但同步前仍要先做最小可用验证与学习结论，不机械堆技能。
 - 2026-04-18 起，网页自动化默认主链路改为 `agent-browser-clawdbot` / `agent-browser` CLI；OpenClaw 内置 `browser` 工具降为备用链路。后续优先用 `agent-browser` 处理多步网页操作、稳定 ref 定位、表单交互与流程自动化；只有在需要内置 browser 的截图、PDF、可视分析或特定集成能力时，再回退使用内置 `browser`。
 - `openai-tts` 当前阻塞不是网络，而是 OpenAI key 无效；换有效 key 后可恢复。
 - `claw-ds-generator` 当前更像不存在、已下架或名字不对，不应继续盲重试。
