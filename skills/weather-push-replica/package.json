@@ -1,0 +1,9 @@
+{
+  "name": "weather-push-replica",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Replicable weather push skill",
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}

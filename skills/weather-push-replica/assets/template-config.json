@@ -1,0 +1,73 @@
+{
+  "city_display": {
+    "strip_suffixes": ["地区", "市", "区", "县", "州", "盟"],
+    "fallback": "枣庄"
+  },
+  "taglines": [
+    "天气早知道，出门不慌张。",
+    "看一眼天气，今天更从容。",
+    "先懂天气，再安排今天。",
+    "出门前看天气，心里更有数。",
+    "节奏不用赶，天气先安排。",
+    "一天的从容，从看天气开始。",
+    "抬头看天，也别忘了看我。",
+    "天气在变，心里别乱。"
+  ],
+  "icon_sizes": {
+    "weather": 28,
+    "pin": 34,
+    "note": 34,
+    "bell": 34,
+    "coat": 32,
+    "cold": 32,
+    "run": 32,
+    "sun": 32,
+    "clock": 28,
+    "calendar": 28
+  },
+  "weather_symbol_sizes": {
+    "main": 72,
+    "hourly": 50,
+    "future": 54
+  },
+  "layout": {
+    "card_width": 1080,
+    "card_min_height": 1868,
+    "card_padding_top": 60,
+    "card_padding_right": 58,
+    "card_padding_bottom": 48,
+    "card_padding_left": 58,
+    "card_gap": 18,
+    "main_columns": "1.5fr 0.5fr",
+    "main_gap": 18,
+    "hero_min_height": 648,
+    "side_min_height": 648,
+    "side_gap": 14,
+    "indices_margin_top": 44
+  },
+  "font_sizes": {
+    "badge": 32,
+    "date": 32,
+    "city": 48,
+    "sub": 24,
+    "weather": 108,
+    "temp": 86,
+    "wind": 36,
+    "tip": 33,
+    "section_title": 30,
+    "sc_title": 28,
+    "sc_big": 42,
+    "sc_text": 27,
+    "ibox_title": 28,
+    "ibox_level": 42,
+    "ibox_desc": 27,
+    "htime": 24,
+    "htemp": 34,
+    "hweather": 28,
+    "hrain": 25,
+    "hwind": 25,
+    "fday": 24,
+    "fweather": 30,
+    "ftemp": 27
+  }
+}
